@@ -9,8 +9,6 @@ var es_BO = {
     chimani: "Chimani",
     old: "Antiguo",
     new: "Nuevo",
-    english: "inglés",
-    spanish: "español",
     left_placeholder: "El texto original se pega acá...",
     right_placeholder: "Y el texto convertido aparece acá!",
     credits: "Créditos:<br/>\
@@ -32,8 +30,6 @@ var en_US = {
     chimani: "Chimani",
     old: "Old",
     new: "New",
-    english: "english",
-    spanish: "spanish",
     left_placeholder: "The original text is written here...",
     right_placeholder: "and the converted text is displayed here!",
     credits: "Credits:<br/>\
@@ -42,6 +38,27 @@ var en_US = {
     LAAC-LSCP team at ENS Paris,<br/>\
     29 rue d'Ulm 75005 Paris, France",
     legal: "Legal notice and personal data"
+}
+
+var fr_FR = {
+    label: "fr_FR",
+    id: "french",
+    title: "convertisseur d'alphabet Tsimane'",
+    header: "convertisseur d'alphabet Tsimane'",
+    paragraph: "Ce convertisseur vous permet d'automatiquement convertir un text écrit en alphabet tsimane' (utilisant la police Times Chimini, l'ancien alphabet ou le nouvel alphabet) vers un autre alphabet.\
+    Vous devez simplement copier et coller le text dans l'emplacement à gauche, sélectionner l'alphabet de départ and celui voulu en sortie, le texte converti apparait alors dans l'emplacement à droite.\
+    Les boutons rayés ne peuvent être pressés.",
+    chimani: "Chimani",
+    old: "ancien",
+    new: "nouveau",
+    left_placeholder: "Écrire le texte de départ ici...",
+    right_placeholder: "et le texte converti est affiché ici!",
+    credits: "Crédits:<br/>\
+    Convertisseur réalisé par William N Havard, chercheur post-doctorant,<br/>\
+    sous la supervision de Alejandrina Cristia, directrice de recherche.<br/>\
+    équipe LAAC-LSCP à ENS Paris,<br/>\
+    29 rue d'Ulm 75005 Paris, France",
+    legal: "Mentions légales et données personnelles"
 }
 
 function set_lang(lang) {
@@ -58,8 +75,6 @@ function set_lang(lang) {
     Array.prototype.forEach.call(document.getElementsByClassName("new"), function(element) {
         element.innerHTML = lang.new
     });
-    document.getElementById("english").innerHTML = lang.english;
-    document.getElementById("spanish").innerHTML = lang.spanish;
 
     document.getElementById("source").placeholder = lang.left_placeholder;
     document.getElementById("target").placeholder = lang.right_placeholder;

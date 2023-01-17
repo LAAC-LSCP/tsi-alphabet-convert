@@ -3,23 +3,17 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Convertidor Alfabeto Tsimane'</title>
-  <link rel="stylesheet" href="style.css" />
-  
+  <title></title>
+  <link rel="stylesheet" href="style.css" /> 
 </head>
-
 <body>
-
   <div class="language-select">
-    <button class="button-lang" id="english" onclick="set_lang(en_US)"></button>
-    <button class="button-lang" id="spanish" onclick="set_lang(es_BO)"></button>
+    <button lang="en_US" class="button-lang" id="english" onclick="set_lang(en_US)">english</button>
+    <button lang="es_BO" class="button-lang" id="spanish" onclick="set_lang(es_BO)">español</button>
+    <button lang="fr_FR" class="button-lang" id="french" onclick="set_lang(fr_FR)">français</button>
   </div>
-
   <h1 class="center" id="header">Conversor Alfabeto Tsimane'</h1>
-
-  <p id="paragraph">
-  </p>
-
+  <p id="paragraph"></p>
   <div class="converter-wrapper">
     <div class="converter">
       <!-- Source TextArea -->
@@ -41,9 +35,7 @@
         <label for="tgt_antiguo" class="old"></label>
         <input class="green" type="radio" name="tgt_lang" id="tgt_nuevo" value="NUEVO" disabled  onclick="convert()">
         <label for="tgt_nuevo" class="new"></label>
-
       </div>
-
       <div class="textareas">
         <textarea id="source" name="source" oninput="convert()" ></textarea>
         <textarea id="target" name="target" aria-readonly="true" readonly ></textarea>
