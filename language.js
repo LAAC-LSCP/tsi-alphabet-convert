@@ -24,9 +24,9 @@ var en_US = {
     id: "english",
     title: "Tsimane' alphabet converter",
     header: "Tsimane' alphabet converter",
-    paragraph: "This converter allows you to automatically convert a text written in Tsimane' (using the Times Chimini font, the old alphabet or the new alphabet) to another alphabet.\
+    paragraph: "This converter allows you to automatically convert a text written in Tsimane' (using the Times Chimini font, the old alphabet, or the new alphabet) to another alphabet.\
     You simply need to copy and paste the text into the left section, select the original alphabet and the desired output alphabet, and the converted text will appear in the right section.\
-    Dashed keys mean that they cannot be pressed.",
+    Striped greyed-out keys mean that they cannot be pressed.",
     chimani: "Chimani",
     old: "Old",
     new: "New",
