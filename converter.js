@@ -1,71 +1,115 @@
-  const ALFABETO = {
-	    CHIMANI: 0,
-	    ANTIGUO: 1,
-	    NUEVO: 2
-    }
-    
-    function normalise(mapper){
-        return mapper.map((row) => row.map((char) => char.normalize("NFC")));
-    }
+const ALFABETO = {
+    CHIMANI: 0,
+    ANTIGUO: 1,
+    NUEVO: 2
+}
 
-    function unlockTargets(){
-        const from = document.querySelector('input[name="src_lang"]:checked').value;
-        if (from == null || !from in ALFABETO){
-          return; 
+function normalise(obj){
+    for (let key in obj) {
+        if (typeof obj[key] === 'string') {
+            obj[key] = obj[key].normalize("NFC");
+        } else if (typeof obj[key] === 'object') {
+            normalise(obj[key]);
         }
-
-        const buttons = document.getElementsByName("tgt_lang");
-        buttons.forEach((button) => {
-          if(button.value != from && button.id != "label"){
-            button.disabled = false;
-          }
-          else
-          {
-            button.disabled = true;
-          }
-        })
     }
+    return obj
+}
+
+function stripDiacritics(string) {
+    return string.normalize("NFKD").replace(/\p{Diacritic}/gu, "")
+}
+
+function reverseSrcTgt(){
+    let from = document.querySelector('input[name="src_lang"]:checked');
+    let to = document.querySelector('input[name="tgt_lang"]:checked');
+
+    if(from == null || to == null){
+        return;
+    }
+
+    from = from.value;
+    to = to.value;
+    from_text = document.getElementById('target').value;
+
+    document.querySelector('input[name="src_lang"][value="'+to+'"]').checked = true;
+    document.querySelector('input[name="tgt_lang"][value="'+from+'"]').checked = true;
+    document.getElementById('source').value = from_text;
+
+    unlockTargets();
+    convert();   
+}
+
+function unlockTargets(){
+    const from = document.querySelector('input[name="src_lang"]:checked').value;
     
-    function convert() {
-        const from = document.querySelector('input[name="src_lang"]:checked').value;
-        const to = document.querySelector('input[name="tgt_lang"]:checked').value;
+    const buttons = document.getElementsByName("tgt_lang");
+    buttons.forEach((button) => {
+      if(button.value != from && button.id != "label"){
+        button.disabled = false;
+      }
+      else
+      {
+        button.disabled = true;
+        button.checked = false;
+        button.selected = false;
+      }
+    })
+}
 
-        if(from == null || to == null){
-          return;
-        }
+function convert() {
+    let from = document.querySelector('input[name="src_lang"]:checked');
+    let to = document.querySelector('input[name="tgt_lang"]:checked');
 
-        // Get the text from the input textarea
-        const source = document.getElementById('source').value;
-        let target = '';
+    if(from == null || to == null){
+      return;
+    }
+    else{
+        from = from.value;
+        to = to.value;
         
-        // Get source/target alphabets
-        const src_alph = ALFABETO[from];
-        const tgt_alph = ALFABETO[to];
-        
-        // Sort mapper by length
-        const sortedMapper = normalise(MAPPING).sort((a, b) => b[src_alph].length - a[src_alph].length);
+        if(from == to){ return; }
+    }
 
-        // Iterate and replace
-        for (let t = 0; t < source.length;)
-        {
-            let swapped = false;
-            INNER: for (let i = 0; i < sortedMapper.length; i++) {
-                let src_char = sortedMapper[i][src_alph];
-                let tgt_char = sortedMapper[i][tgt_alph];
-                
-                if(source.slice(t).startsWith(src_char)){
-                    target += tgt_char; 
-                    // Increment with number of characters to skip
-                    t += src_char.length;
-                    swapped = true;
-                    break INNER;
+    // Get the text from the input textarea
+    const source = document.getElementById('source').value;
+    let target = '';
+    
+    // Get source/target alphabets
+    const src_alph = ALFABETO[from];
+    const tgt_alph = ALFABETO[to];
+    
+    // Sort mapper by length
+    const sortedMapper = normalise(MAPPING).sort((a, b) => b[src_alph][0].length - a[src_alph][0].length);
+
+    // Iterate and replace
+    for (let t = 0; t < source.length;)
+    {
+        let swapped = false;
+        INNER: for (let i = 0; i < sortedMapper.length; i++) {
+            let src_char = sortedMapper[i][src_alph][0];
+            let tgt_char = sortedMapper[i][tgt_alph];
+
+            if(source.slice(t).startsWith(src_char)){
+                if(tgt_char[1].length > 0){
+                    const nextChar = source.slice(t+src_char.length, t+src_char.length+1)
+                    if(!tgt_char[1].includes(stripDiacritics(nextChar)))
+                    {
+                        continue;
+                    }
                 }
-            }
-            // If we couln't replace anything, just append the first character
-            if(!swapped){
-                target += source.slice(t, t+1);
-                t+=1;
+
+                target += tgt_char[0]; 
+                // Increment with number of characters to skip
+                t += src_char.length;
+                swapped = true;
+                break INNER;
             }
         }
-        document.getElementById('target').value = target;
+        // If we couldn't replace anything, just append the first character
+        if(!swapped){
+            target += source.slice(t, t+1);
+            t+=1;
+        }
     }
+    document.getElementById('target').value = target;
+}

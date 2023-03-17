@@ -14,36 +14,38 @@
   </div>
   <h1 class="center" id="header">Conversor Alfabeto Tsimane'</h1>
   <p id="paragraph"></p>
-  <div class="converter-wrapper">
-    <div class="converter">
-      <!-- Source TextArea -->
-      <div class="switch-field">
+  	<div class="converter-wrapper">
+		<div class="converter">
 
-        <input class="red" type="radio" name="src_lang" id="src_chimani" value="CHIMANI" onclick="unlockTargets()">
-        <label for="src_chimani" class="chimani"></label>
-        <input class="red" type="radio" name="src_lang" id="src_antiguo" value="ANTIGUO"  onclick="unlockTargets()">
-        <label for="src_antiguo" class="old"></label>
-        <input class="red" type="radio" name="src_lang" id="src_nuevo" value="NUEVO"  onclick="unlockTargets()">
-        <label for="src_nuevo" class="new"></label>
+		  <div class="switch-field">
 
-        <input type="radio" name="src_lang" id="label" value="→"  disabled>
-        <label for="label">→</label>
+			<input class="red" type="radio" name="src_lang" id="src_chimani" value="CHIMANI" onclick="unlockTargets()">
+			<label for="src_chimani">Chimani</label>
+			<input class="red" type="radio" name="src_lang" id="src_antiguo" value="ANTIGUO"  onclick="unlockTargets()">
+			<label for="src_antiguo">Antiguo</label>
+			<input class="red" type="radio" name="src_lang" id="src_nuevo" value="NUEVO"  onclick="unlockTargets()">
+			<label for="src_nuevo">Nuevo</label>
 
-        <input class="green" type="radio" name="tgt_lang" id="tgt_chimani" value="CHIMANI" disabled  onclick="convert()">
-        <label for="tgt_chimani" class="chimani"></label>
-        <input class="green" type="radio" name="tgt_lang" id="tgt_antiguo" value="ANTIGUO" disabled  onclick="convert()">
-        <label for="tgt_antiguo" class="old"></label>
-        <input class="green" type="radio" name="tgt_lang" id="tgt_nuevo" value="NUEVO" disabled  onclick="convert()">
-        <label for="tgt_nuevo" class="new"></label>
-      </div>
-      <div class="textareas">
-        <textarea id="source" name="source" oninput="convert()" ></textarea>
-        <textarea id="target" name="target" aria-readonly="true" readonly ></textarea>
-      </div>
-    </div>
-  </div>
+			<input type="radio" name="label" id="label" value="rev" onclick="reverseSrcTgt()">
+			<label for="label">⇄</label>
+
+			<input class="green" type="radio" name="tgt_lang" id="tgt_chimani" value="CHIMANI" disabled  onclick="convert()">
+			<label for="tgt_chimani">Chimani</label>
+			<input class="green" type="radio" name="tgt_lang" id="tgt_antiguo" value="ANTIGUO" disabled  onclick="convert()">
+			<label for="tgt_antiguo">Antiguo</label>
+			<input class="green" type="radio" name="tgt_lang" id="tgt_nuevo" value="NUEVO" disabled  onclick="convert()">
+			<label for="tgt_nuevo">Nuevo</label>
+
+		  </div>
+
+		  <div class="textareas">
+			<textarea id="source" name="source" oninput="convert()" placeholder="El texto original se pega acá..."></textarea>
+			<hr>
+			<textarea id="target" name="target" aria-readonly="true" readonly placeholder="Y el texto convertido aparece acá!"></textarea>
+		  </div>
+		</div>
+	</div>
   <footer >
-    <hr>
     <p id="credits"></p>
     <a href="./legal_notice.html" id="legal"></a>
   </footer>

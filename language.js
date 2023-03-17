@@ -12,7 +12,7 @@ var es_BO = {
     left_placeholder: "El texto original se pega acá...",
     right_placeholder: "Y el texto convertido aparece acá!",
     credits: "Créditos:<br/>\
-    Convertidor construido por William N Havard, investigador posdoctoral,<br/>\
+    Conversor construido por William N. Havard, investigador posdoctoral, y Loann Peurey, ingeniero<br/>\
     bajo la supervisión de Alejandrina Cristia, directora de investigación.<br/>\
     Equipo LAAC-LSCP en la ENS de París,<br/>\
     29 rue d'Ulm 75005 París, Francia",
@@ -24,7 +24,7 @@ var en_US = {
     id: "english",
     title: "Tsimane' alphabet converter",
     header: "Tsimane' alphabet converter",
-    paragraph: "This converter allows you to automatically convert a text written in tsimane' alphabet (using Times Chimini font, the old alphabet or the new alphabet) to another alphabet.\
+    paragraph: "This converter allows you to automatically convert a text written in Tsimane' (using the Times Chimini font, the old alphabet or the new alphabet) to another alphabet.\
     You simply need to copy and paste the text into the left section, select the original alphabet and the desired output alphabet, and the converted text will appear in the right section.\
     Dashed keys mean that they cannot be pressed.",
     chimani: "Chimani",
@@ -33,7 +33,7 @@ var en_US = {
     left_placeholder: "The original text is written here...",
     right_placeholder: "and the converted text is displayed here!",
     credits: "Credits:<br/>\
-    Converter built by William N Havard, post-doctoral researcher,<br/>\
+    Converter built by William N. Havard, post-doctoral researcher, and Loann Peurey, engineer,<br/>\
     under the supervision of Alejandrina Cristia, research director.<br/>\
     LAAC-LSCP team at ENS Paris,<br/>\
     29 rue d'Ulm 75005 Paris, France",
@@ -43,9 +43,9 @@ var en_US = {
 var fr_FR = {
     label: "fr_FR",
     id: "french",
-    title: "convertisseur d'alphabet Tsimane'",
-    header: "convertisseur d'alphabet Tsimane'",
-    paragraph: "Ce convertisseur vous permet d'automatiquement convertir un text écrit en alphabet tsimane' (utilisant la police Times Chimini, l'ancien alphabet ou le nouvel alphabet) vers un autre alphabet.\
+    title: "Convertisseur d'alphabet Tsimane'",
+    header: "Convertisseur d'alphabet Tsimane'",
+    paragraph: "Ce convertisseur vous permet d'automatiquement convertir un texte écrit en alphabet tsimane' (utilisant la police Times Chimini, l'ancien alphabet ou le nouvel alphabet) vers un autre alphabet.\
     Vous devez simplement copier et coller le text dans l'emplacement à gauche, sélectionner l'alphabet de départ and celui voulu en sortie, le texte converti apparait alors dans l'emplacement à droite.\
     Les boutons rayés ne peuvent être pressés.",
     chimani: "Chimani",
@@ -54,7 +54,7 @@ var fr_FR = {
     left_placeholder: "Écrire le texte de départ ici...",
     right_placeholder: "et le texte converti est affiché ici!",
     credits: "Crédits:<br/>\
-    Convertisseur réalisé par William N Havard, chercheur post-doctorant,<br/>\
+    Convertisseur réalisé par William N. Havard, chercheur post-doctorant, et Loann Peurey, ingénieur<br/>\
     sous la supervision de Alejandrina Cristia, directrice de recherche.<br/>\
     équipe LAAC-LSCP à ENS Paris,<br/>\
     29 rue d'Ulm 75005 Paris, France",

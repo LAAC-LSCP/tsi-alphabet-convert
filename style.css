@@ -8,101 +8,99 @@ body{
     text-align: center;
 }
 
-.converter-wrapper{
-    display:flex;
-    min-width: 150px;
-    margin: auto;
+.converter-wrapper {
+	 display: flex;
+	 min-width: 150px;
+	 margin: auto;
+}
+ .converter-wrapper textarea {
+	 width: 100%;
+	 min-height: 350px;
+}
+ .converter {
+	 display: flex;
+	 flex-direction: column;
+	 margin: auto;
+	 border: 1px solid rgba(0, 0, 0, 0.5);
+	 border-radius: 4px 4px 4px 4px;
+	 width: 100%;
+}
+ .textareas {
+	 display: flex;
+	 flex-direction: rows;
+}
+ .textareas textarea {
+	 resize: vertical;
+	 border: none;
+	 padding: 10px;
+}
+ textarea:focus {
+	 outline: 0;
+}
+ .textareas hr {
+	 height: auto;
+	 width: auto;
+	 margin: 0px;
+	 border-color: rgba(0, 0, 0, 0.5);
+	 border-style: solid;
+	 border-width: 0px 0px 1px 1px;
+}
+ .switch-field {
+	 display: flex;
+	 overflow: hidden;
+	 margin: auto;
+	 min-width: 150px;
+}
+ .switch-field input {
+	 position: absolute !important;
+	 clip: rect(0, 0, 0, 0);
+	 height: 1px;
+	 width: 1px;
+	 border: 0;
+	 overflow: hidden;
+}
+ .switch-field label {
+	 background-color: #fff;
+	 color: rgba(0, 0, 0, 0.8);
+	 font-size: 14px;
+	 line-height: 1;
+	 text-align: center;
+	 padding: 8px 16px;
+	 border: 1px solid rgba(0, 0, 0, 0.2);
+	 border-width: 0 1px 1px 0;
+	 margin-bottom: 0px;
+}
+ .switch-field label:hover {
+	 cursor: pointer;
+	 box-shadow: none;
+	 color: black;
+}
+ .switch-field label:first-of-type {
+	 border-left: 1px solid rgba(0, 0, 0, 0.2);
+	 border-radius: 0 0 0 4px;
+}
+ .switch-field label:last-of-type {
+	 border-radius: 0 0 4px 0;
+}
+ .switch-field label:not([for=label]):hover {
+	 background-color: rgba(0, 0, 0, 0.1);
+}
+ input.red:checked + label {
+	 background-color: #dc9086;
+	 box-shadow: none;
+	 color: black;
+	 font-weight: bold;
+}
+ input.green:checked + label {
+	 background-color: #a5dc86;
+	 box-shadow: none;
+	 color: black;
+	 font-weight: bold;
+}
+ input:disabled:not(#label) + label {
+	 background: repeating-linear-gradient(-45deg, #e0e0e0, #e0e0e0 5px, white 5px, white 10px);
 }
 
-.converter-wrapper textarea{
-    width: 100%;
-    min-height: 350px;
-}
-
-.converter{
-    display:flex;
-    flex-direction: column;
-    margin:auto;
-    border: 1px solid rgba(0, 0, 0, 0.5);
-    border-radius: 4px 4px 4px 4px;
-    width:100%;
-}
-
-.textareas{
-    display: flex;
-    flex-direction: rows;
-}
-
-.textareas textarea{
-    resize: vertical;
-    border: none;
-    padding: 10px;
-}
-
-textarea:focus{
-    outline:0;
-}
-
-textarea[id=source]{
-    border-right: 1px rgba(0, 0, 0, 0.5) solid !important;
-}
-
-/* Adapted from https://codepen.io/JiveDig/pen/jbdJXR */
-.switch-field {
-    display: flex;
-    overflow: hidden;
-    margin: auto;
-    min-width: 150px;
-}
-
-.switch-field input {
-    position: absolute !important;
-    clip: rect(0, 0, 0, 0);
-    height: 1px;
-    width: 1px;
-    border: 0;
-    overflow: hidden;
-}
-
-.switch-field label {
-    background-color: #ffffff;
-    color: rgba(0, 0, 0, 0.8);
-    font-size: 14px;
-    line-height: 1;
-    text-align: center;
-    padding: 8px 16px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    border-width:  0 1px 1px 0;
-    /* box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
-    transition: all 0.1s ease-in-out; */
-}
-
-.switch-field label:hover {
-    cursor: pointer;
-    box-shadow: none;
-}
-
-input.red:checked + label {
-    background-color: #dc9086;
-    box-shadow: none;
-}
-
-input.green:checked + label {
-    background-color: #a5dc86;
-    box-shadow: none;
-}
-
-input:disabled:not(#label) + label{
-    background: repeating-linear-gradient(-45deg, #e0e0e0, #e0e0e0 5px, white 5px, white 10px);
-}
-
-.switch-field label:first-of-type {
-    border-left: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: 0 0 0 4px;
-}
-.switch-field label:last-of-type {
-    border-radius: 0 0 4px 0;
-}
 
 .language-select {
     position: relative;
