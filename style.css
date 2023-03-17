@@ -157,3 +157,34 @@ body{
 footer {
     font-size: small;
 }
+
+details{
+	background-color: rgb(220,220,220);
+	margin: 20px auto 20px auto;
+	padding: 10px;
+	border: 1px solid black;
+}
+
+ol li{
+	display: display:list-item;
+	max-width:50%;
+	
+	list-style-type: decimal;
+    list-style-position: inside;
+	
+	margin: 20px auto 20px auto;	
+}
+
+ol li:not(:last-child){
+	border-bottom: 1px solid black;
+}
+
+ol > li::marker {
+  font-weight: bold;
+}
+
+li img{
+	display: block;
+	margin: 20px auto 20px auto;
+	border: 1px solid black;
+}
