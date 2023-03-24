@@ -93,7 +93,7 @@ function convert() {
                 // There is restriction on the use of the caracter (e.g. only come before some letter or another, etc.)
                 if(tgt_char[1].length > 0){
                     const nextChar = source.slice(t+src_char.length, t+src_char.length+1)
-                    if(!tgt_char[1].includes(stripDiacritics(nextChar)))
+                    if(!tgt_char[1].includes(stripDiacritics(nextChar)) && !tgt_char[1].map(function(x) { return x.toUpperCase(); }).includes(stripDiacritics(nextChar)))
                     {
                         // Restriction not met, skip!
                         continue;
