@@ -71,7 +71,7 @@ function convert() {
     }
 
     // Get the text from the input textarea
-    const source = document.getElementById('source').value;
+    const source = document.getElementById('source').value.normalize("NFC");
     let target = '';
     
     // Get source/target alphabets
@@ -89,16 +89,20 @@ function convert() {
             let src_char = sortedMapper[i][src_alph][0];
             let tgt_char = sortedMapper[i][tgt_alph];
 
-            if(source.slice(t).startsWith(src_char)){
+            if(source.slice(t).startsWith(src_char) || source.slice(t).startsWith(src_char.toUpperCase())){
+                // There is restriction on the use of the caracter (e.g. only come before some letter or another, etc.)
                 if(tgt_char[1].length > 0){
                     const nextChar = source.slice(t+src_char.length, t+src_char.length+1)
                     if(!tgt_char[1].includes(stripDiacritics(nextChar)))
                     {
+                        // Restriction not met, skip!
                         continue;
                     }
-                }
+                }               
+                
+                // Handle uppercase and lowercase (easier to do here than in the mapper)
+                target += source.slice(t).startsWith(src_char.toUpperCase()) ? tgt_char[0].toUpperCase() : tgt_char[0].toLowerCase(); 
 
-                target += tgt_char[0]; 
                 // Increment with number of characters to skip
                 t += src_char.length;
                 swapped = true;
